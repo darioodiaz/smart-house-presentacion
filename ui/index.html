@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>The Super Smart House</title>
+	<link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+	<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+	<style>
+	.fixed-scroll {
+		height: 40em;
+		max-height: 40em;
+		overflow-y: scroll;
+	}
+	.fixed-scroll-2 {
+		height: 13em;
+		max-height: 13em;
+		overflow-y: scroll;
+	}
+	.tweet-command {
+		font-size: 1.4em;
+	}
+	.list-group-item img {
+		border-radius: 35px;
+		height: 70px;
+		width: 70px;
+	}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="panel_status" class="panel panel-danger">
+				<div class="panel-heading">
+					<h1 class="panel-title text-center"><i id="status_icon" class="fa fa-close"></i> Estado: <span id="status_text">DESCONECTADO</span></h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fa fa-home"></i> Sensores</h3>
+					</div>
+					<div class="panel-body">
+						 <div class="form-group">
+						 	<label>Luz</label>
+							<button type="button" id="btn_led" data-status="off" class="btn btn-lg btn-danger"><i class="fa fa-lightbulb-o"></i><span id="led_txt"> OFF</span></button>					
+						</div>
+						<div class="form-group">
+						 	<label>Temp</label>
+						 	<button class="btn btn-lg btn-success" id="btn_temp" type="button">
+  								<i class="fa fa-fire"> </i> <span class="badge" id="txt_temp">20 °C</span>
+							</button>
+						</div>
+						<div class="form-group">
+						 	<label>Puerta</label>
+						 	<button class="btn btn-lg btn-primary" data-status="off" id="btn_door" type="button">
+  								<i class="fa fa-lock"></i><span id="door_txt"> CERRADO</span></button>
+						</div>
+						<div class="form-group">
+						 	<label>Idioma</label>
+						 	<select id="lst_languages">
+						 		<option value="es-AR">Español</option>
+						 		<option value="en-US">Ingles</option>
+						 	</select>
+						</div>
+						<div class="form-group">
+						 	<label>Comandos de voz</label>
+						 	<button class="btn btn-lg btn-warning" data-status="off" id="btn_voice" type="button">
+  								<i class="fa fa-microphone-slash"></i><span id="voice_txt"> OFF</span></button>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title"><i class="fa fa-comments"></i> The Smart house dice</h3>
+							</div>
+							<div class="panel-body fixed-scroll-2">
+								<ul class="list-group" id="lst_house"></ul>
+							</div>
+		 				</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"><i class="fa fa-twitter-square"></i> Comandos de Twitter</h3>
+					</div>
+					<div class="panel-body fixed-scroll">
+						<ul class="list-group" id="lst_tweets">
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="http://localhost:8000/iot/client.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
